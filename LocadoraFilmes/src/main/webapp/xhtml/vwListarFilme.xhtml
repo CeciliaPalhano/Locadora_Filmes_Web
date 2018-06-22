@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<head>  
+		<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>  
+		<script language="javascript" src="../../js/listarFilme.js" charset="ISO-8859-1"/>
+	</head>
+	<body onload = 'desmarcarTodos()'>
+		<f:view><center>
+			<h:form id="formulario">
+			
+				<input type="hidden" id="id" name="id"/>
+				
+				<h:dataTable border="1" styleClass="sample" id="filmes" value="#{filmeController.listaFilmeBean}" var="filme">
+				
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Filme" />
+						</f:facet>
+						<h:inputHidden value="#{filme.id}" />
+						<h:outputLabel value="#{filme.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Gênero" />
+						</f:facet>
+						<h:outputLabel value="#{filme.assunto}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Duração" />
+						</f:facet>
+						<h:outputLabel value="#{filme.duracao}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Data Locação" />
+						</f:facet>
+						<h:outputLabel value="#{filme.datalocacao}" ><f:convertDateTime pattern="dd/MM/yyyy"/></h:outputLabel>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Data Entrega" />
+						</f:facet>
+						<h:outputLabel value="#{filme.dataentrega}" ><f:convertDateTime pattern="dd/MM/yyyy"/></h:outputLabel>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Preço" />
+						</f:facet>
+						<h:outputLabel value="#{filme.precolocacao}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="" />
+						</f:facet>
+						<h:message for="#{filmeController}"/>
+						<h:selectOneRadio id="selecionado" value="#{filmeController.filmeBean.id}" onclick="selecionarItem('id',this);">
+							<f:selectItem itemValue="#{filme.id}"/>
+						</h:selectOneRadio>
+					</h:column>
+					
+				</h:dataTable>
+				<br/>
+				<h:commandButton styleClass="button" value="Novo" action="#{filmeController.criar}" />
+				<h:commandButton styleClass="button" value="Editar" action="#{filmeController.consultar}" onclick="return validarSelecionado()" />
+				<h:commandButton styleClass="button" value="Excluir" action="#{filmeController.excluir}" onclick="return validarSelecionado()"/>
+				<h:messages />
+			</h:form></center>
+		</f:view>
+	</body>
+
+</html>

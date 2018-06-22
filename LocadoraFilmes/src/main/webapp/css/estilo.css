@@ -1,0 +1,66 @@
+table, th, td {
+table, th, td {
+	border: 1px solid #ff8080;
+	border-collapse: collapse;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	color: #000000;
+}
+
+td, th {
+	padding: 4px;
+}
+
+thead th {
+	text-align: center;
+	background: #FF3030;
+	color: #000000;
+	font-size: 100%;
+}
+
+tbody th {
+	font-weight: bold;
+}
+
+tbody tr { background: #FFDAB9; }
+
+.button {
+	border:1px solid #25692A;
+border-radius:4px;
+display:inline-block;
+cursor:pointer;
+font-family:Verdana;
+font-weight:bold;
+font-size:13px;
+padding:6px 10px;
+text-decoration:none;
+}
+
+label{
+	float: left;
+	width: 120px;
+	font-weight: bold;
+}
+
+input, select{
+	margin-bottom: 5px;
+}
+body {
+   background: url(../images/wick.jpg);
+}
+.fonte{
+	font-family: Luminari, fantasy;
+	color:white;
+	font-size: 400%;
+	text-shadow: 2px -2px #A52A2A; 
+	text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px red;
+}
+.msg{
+	color: #FCFDFE;
+}
+.campo {
+	height:15px;
+	border-radius: 3px;    
+}
+input[type=text]{
+	width:20%;
+}

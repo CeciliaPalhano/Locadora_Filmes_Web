@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<head>  
+		<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>  
+		<script language="javascript" src="../../js/criarFilme.js" charset="ISO-8859-1"/>
+	</head>
+	<body>
+		<f:view>
+			<h:form id="formulario">
+				<br/>
+				<h:inputHidden value="#{filmeController.filmeBean.id}" />
+			<h:outputLabel class = "msg" value="Filme:" /> <h:inputText id="nome" value="#{filmeController.filmeBean.nome}" size="50" maxlength="50" class = "campo"/>
+				<br></br>
+				<h:outputLabel class = "msg" value="Gênero:" /> <h:inputText id="assunto" value="#{filmeController.filmeBean.assunto}" size="50" maxlength="50" class = "campo"/>
+				<br></br>
+				<h:outputLabel class = "msg" value="Duração:" /> <h:inputText id="duracao" value="#{filmeController.filmeBean.duracao}" size="7" maxlength="7" class = "campo"/>
+				<br></br>
+				<h:outputLabel class = "msg" value="Data Locação:" /> <h:inputText id="datalocacao" value="#{filmeController.filmeBean.datalocacao}" size="10" maxlength="10" class = "campo">
+				<f:convertDateTime pattern="dd/MM/yyyy"/></h:inputText><br></br>
+				<h:outputLabel class = "msg" value="Data Entrega:" /> <h:inputText id="dataentrega" value="#{filmeController.filmeBean.dataentrega}" size="10" maxlength="10" class = "campo">
+				<f:convertDateTime pattern="dd/MM/yyyy"/> </h:inputText><br></br>
+				<h:outputLabel class = "msg" value="Preço:" /> <h:inputText id="precolocacao" value="#{filmeController.filmeBean.precolocacao}" size="10" maxlength="10" class = "campo" />
+
+				<br/>
+				<br></br>
+				<h:commandButton styleClass="button" value="Salvar" action="#{filmeController.incluir}" onclick="return validarFormulario();"/>
+			</h:form>
+		</f:view>
+	</body>
+
+</html>
